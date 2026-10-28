@@ -1,17 +1,21 @@
-# Planned specifications
+# Specifications
 
-No approved product schema, API or conformance contract exists yet.
+## Evaxis Evidence Envelope v0.1
 
-**Proposed next milestone: Evaxis Evidence Envelope.** Establish the meaning
-and validation/failure semantics of evidence provenance, source and collector
-identity, collection timestamps, completeness, freshness, immutability and
-replay protection, without selecting storage or execution providers.
+[Evidence Envelope v0.1](evidence-envelope-v0.1.md) is a proposed human-readable
+semantic contract, pending maintainer review and explicit architectural
+approval. It defines separate envelope, collection manifest, observation and
+assessment records; identity/provenance limits; completeness and freshness;
+compatibility outcomes; and rules for distinguishing environmental from
+collection, schema, identity, relationship and evaluator changes.
 
-Subsequent proposals should distinguish evidence, observations, assessments and
-collection manifests; preserve schema/collection/identity-resolution/evaluator
-context; and define how incomplete or incomparable inputs are represented.
+The proposal selects no product language, cloud, API, storage, execution model,
+cryptographic algorithm/key custody, encryption, retention default, licence,
+billing or Maester integration. It is not evidence that a runtime or comparison
+engine exists.
 
-**Undecided:** field names, encoding, schema format, version compatibility,
-cryptographic design and implementation stack. Do not invent schemas, example
-findings or tests to fill the reserved core directories.
-Approved synthetic conformance fixtures follow specification review.
+The [core repository schemas and synthetic fixtures](https://github.com/evaxis/evaxis/tree/main/schemas)
+own machine-readable record structure and expected conformance results. This
+architecture document owns human semantics. The two repositories align using
+the explicit contract version `0.1`; a meaning-changing update requires
+corresponding reviewed updates in both.
