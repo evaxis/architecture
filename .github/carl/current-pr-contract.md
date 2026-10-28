@@ -2,10 +2,10 @@
 
 ## Contract status
 
-Active review-revision scope for https://github.com/evaxis/architecture/pull/3.
-The user requests cross-PR corrections before merge; keep the PR open and the
-specification proposed, not approved. Revise trust-claim authority, identity
-continuity language, and comparison preconditions to align with core PR #1.
+Closed — submitted for review, not approved. The proposal remains open for
+maintainer review at https://github.com/evaxis/architecture/pull/3. The
+cross-PR review revisions clarify trust-claim authority, identity continuity
+language, and comparison preconditions to align with core PR #1.
 
 ## Goal and approved scope
 
