@@ -2,10 +2,11 @@
 
 ## Contract status
 
-Active. The user authorized drafting the specification, fixtures/tooling across
-both repositories, validation, commits, pushes and linked PR creation. This
-repository's PR will publish a **proposal pending maintainer review**, not an
-approved architectural decision. Do not merge it.
+Closed as submitted for review: https://github.com/evaxis/architecture/pull/3.
+The user authorized drafting the specification, fixtures/tooling across both
+repositories, validation, commits, pushes and linked PR creation. This PR
+publishes a **proposal pending maintainer review**, not an approved
+architectural decision. Do not merge it.
 
 ## Goal and approved scope
 
