@@ -15,11 +15,19 @@ all individual technology providers.
 | Area | Contents |
 |---|---|
 | [Architectural records](adr/README.md) | Decision process and confirmed foundation constraints |
-| [Diagrams](diagrams/README.md) | Intended location of the original animated architecture artifact; source not supplied |
+| [Diagrams](diagrams/README.md) | Animated architecture and roadmap proposal, with local viewing instructions |
 | [Specifications](specifications/README.md) | Planned Evidence Envelope work; no approved schemas |
 | [Threat model](threat-model/README.md) | Preliminary boundaries and analysis questions, not a completed security assessment |
 | [Roadmap](roadmap/README.md) | Evidence Envelope and conformance before implementation |
 | [Repository governance](repository-governance.md) | Least-privilege GitHub baseline and sole-maintainer workflow |
+
+The [animated architecture and roadmap](diagrams/evaxis_architecture_roadmap_animated.html)
+is an interactive design exploration, not a deployed site or an approved
+implementation plan. GitHub displays its source; download it and open it in a
+browser as described in the [diagram guide](diagrams/README.md).
+Technology, API, encryption and commercial examples in the diagram remain
+illustrative. [Confirmed foundation boundaries](adr/0001-foundation-boundaries.md)
+and the [specification-first roadmap](roadmap/README.md) govern future decisions.
 
 **Proposed:** Maester integration via possible Packs and Cloud Plugins. Maester
 is not Evaxis's execution or storage foundation. Provider APIs, evidence storage,

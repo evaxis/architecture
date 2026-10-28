@@ -3,6 +3,13 @@
 **Confirmed current stage:** organisation/repository foundations, governance and
 architectural documentation. No production service or product release exists.
 
+The [animated architecture and roadmap proposal](../diagrams/evaxis_architecture_roadmap_animated.html)
+explores possible later integrations, deployments and commercial stages.
+See [viewing instructions and decision status](../diagrams/README.md).
+Its phase labels are illustrative, not approved milestones: this roadmap keeps
+the Evidence Envelope and synthetic conformance fixtures first. Named storage,
+identity, encryption and commercial options do not select technologies or terms.
+
 | Order | Proposed milestone | Exit evidence |
 |---|---|---|
 | 1 | Evaxis Evidence Envelope specification and conformance fixtures | Reviewed semantics for provenance, identity, time, completeness, freshness, replay and version context; approved synthetic fixtures and assertions |
