@@ -16,7 +16,9 @@ Reference this URL; do not generate or commit replacement artwork.
 ## Repository map
 
 - `adr/`: decision process and confirmed foundation boundaries.
-- `specifications/`: planned contracts; no approved Evidence Envelope yet.
+- `specifications/evidence-envelope-v0.1.md`: proposed human-semantic Evidence
+  Envelope contract; pending explicit approval. It owns terminology, lifecycle,
+  compatibility, trust limits and intended meaning.
 - `threat-model/`: initial trust-boundary and threat-analysis scope.
 - `roadmap/`: milestone order, without delivery-date promises.
 - `diagrams/evaxis_architecture_roadmap_animated.html`: supplied interactive
@@ -29,6 +31,12 @@ Reference this URL; do not generate or commit replacement artwork.
   the specification-first roadmap outrank the diagram's exploratory phases.
 - `https://github.com/evaxis/evaxis`: future independent core.
 - `https://github.com/evaxis/.github`: shared community governance and profile.
+
+The architecture repository is authoritative for human-readable contract
+semantics; the core repository owns machine-readable schemas and synthetic
+expected-result fixtures. Align both on explicit contract version `0.1`.
+Schema/fixture validation checks record structure and test-data consistency
+only; it does not implement or verify semantic comparison behavior.
 
 ## Security and engineering invariants
 
@@ -48,6 +56,8 @@ These are repository-specific canonical invariants, supplementing the bundled
 5. Evidence integrity: design for immutable evidence, provenance, source and
    collector identity, collection timestamps, completeness, freshness and replay
    protection. Do not claim these properties are already implemented.
+   Producer-supplied verification/authentication metadata is a claim only;
+   receiver-established verification must be a separate derived record.
 6. Semantic correctness: distinguish environmental drift from schema,
    collection, identity-resolution and evaluation changes.
 7. Commercial independence: useful baseline functionality should remain
@@ -82,7 +92,9 @@ These supplement `.github/carl/trust-boundaries.md`.
 | GitHub token into administration | Verify owner, target and actual remote settings; least privilege; no self-administration workflow or stored administration token. |
 | PR content into CI | Read-only token, no secrets, no `pull_request_target`, no privileged execution of contributor code. |
 | Sensitive report into public discussion | Use private vulnerability reporting; never publish customer evidence or credentials. |
-| Future evidence/tenant/provider boundaries | Specify source identity, evaluator context, completeness, authorization, key isolation and portability before claiming any assurance property. |
+| Future evidence/tenant/provider boundaries | Preserve source identity, evaluator context, completeness, authorization, key isolation and portability; integrity, authenticity, truthfulness, freshness and visibility are independent claims. |
+| Producer trust metadata into consumer assurance | Never promote producer-asserted verification/authentication status based on schema validity; require separate receiver-owned verification evidence and preserve the original immutable claim. |
+| Architecture semantics into core schema | Architecture owns human-semantic meaning; core owns schema structure and fixture expectations. Keep the explicit version aligned and review meaning changes in both repositories. |
 
 ## cARL ownership and workflow
 
@@ -109,8 +121,9 @@ JFrog Boost must exclude `.github/carl/**` from optimisation.
 
 ## Proposed next milestone and open decisions
 
-Next: specify the Evaxis Evidence Envelope, then approve synthetic conformance
-fixtures. No fictional schemas, findings or test implementations at bootstrap.
+Next: review and explicitly approve the proposed Evaxis Evidence Envelope v0.1
+and linked core schemas/fixtures. The animated explorer remains illustrative;
+it does not approve any proposed contract or product decision.
 Licensing, contribution rights, execution model, storage adapters, identity,
 cryptographic design, commercial entitlements and all provider contracts remain
 undecided. No partnerships, affiliations or endorsements are established.

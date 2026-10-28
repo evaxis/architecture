@@ -16,7 +16,7 @@ all individual technology providers.
 |---|---|
 | [Architectural records](adr/README.md) | Decision process and confirmed foundation constraints |
 | [Diagrams](diagrams/README.md) | Animated architecture and roadmap proposal, with local viewing instructions |
-| [Specifications](specifications/README.md) | Planned Evidence Envelope work; no approved schemas |
+| [Specifications](specifications/README.md) | Proposed Evidence Envelope v0.1 semantics; pending review |
 | [Threat model](threat-model/README.md) | Preliminary boundaries and analysis questions, not a completed security assessment |
 | [Roadmap](roadmap/README.md) | Evidence Envelope and conformance before implementation |
 | [Repository governance](repository-governance.md) | Least-privilege GitHub baseline and sole-maintainer workflow |

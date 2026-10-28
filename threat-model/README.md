@@ -19,7 +19,16 @@ Maester Cloud runner environments without treating one as mandatory.
 Key isolation and envelope encryption are preferred directions, not controls
 that exist today.
 
-**Undecided:** data classification, detailed adversary capabilities, key custody,
-identity model, algorithms, retention/deletion obligations, authorization
-semantics, storage consistency and residual risk acceptance.
-The Evidence Envelope proposal must explicitly address these boundaries.
+The proposed [Evidence Envelope v0.1](../specifications/evidence-envelope-v0.1.md)
+addresses evidence-specific threats: cross-tenant confusion, spoofed source or
+collector identity, forged provenance, replay/staleness, malicious collector
+output, sensitive metadata leakage, overcollection, ambiguous object
+correlation, schema confusion, unsafe transformations and false historical
+conclusions. It distinguishes integrity assertions from source truth,
+authenticity, freshness and collection completeness. These are design
+requirements, not implemented controls or a completed threat assessment.
+
+**Undecided:** data classification, detailed adversary capabilities, key
+custody, identity/authentication model, cryptographic algorithms, retention and
+deletion obligations, authorization semantics, storage consistency and
+residual risk acceptance. The proposal selects none of them.
