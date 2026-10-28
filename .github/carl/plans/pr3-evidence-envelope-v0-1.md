@@ -2,7 +2,7 @@
 
 ## Plan metadata
 - PR / branch: architecture PR #3 / `spec/evidence-envelope-v0.1`
-- Status: Submitted for review; proposal pending explicit architectural approval
+- Status: Active review revision; proposal pending explicit architectural approval
 - Author: Copilot
 - Created: 2026-10-28
 - Last updated: 2026-10-28
@@ -40,8 +40,11 @@ the architectural decisions required to publish v0.1 as normative.
 
 ## Intentional contract amendments
 
-None. This proposal elaborates existing foundation boundaries without selecting
-reserved technical or commercial decisions.
+Clarify that producer-supplied verifier/authentication metadata is a claim only,
+that receiver verification is a separate derived record, that different native
+IDs do not prove replacement, and that comparison requires explicit freshness,
+scope, coverage, identity, semantic and receiver-trust preconditions. No
+reserved technical or commercial decision is selected.
 
 ## Goal
 
@@ -126,6 +129,9 @@ no unsupported assurance claims; PR-only changes; no license selection.
    and machine-readable fixture expectations. Versions and cross-links align.
 5. The proposal makes no product-stack, provider, cryptography, licence,
    retention, billing or Maester implementation decision.
+6. Structural validity, package consistency and semantic expectations are
+   distinct; the existing fixture validator is not described as behavioral
+   conformance.
 
 ## Contract assertions
 

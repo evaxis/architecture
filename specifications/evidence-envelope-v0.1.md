@@ -122,6 +122,19 @@ justify that exact claim. Permission names, scopes and visibility constraints
 SHOULD be recorded in a least-disclosing form; credentials and tokens MUST NOT
 be included.
 
+For package consistency, target identity is the tuple `(authority, scopeId,
+nativeId)`, not the complete serialized target object. Target tuples MUST be
+unique within each of `expectedTargets`, `observedTargets` and `notObserved`.
+`observedTargets` and `notObserved` MUST be disjoint subsets of
+`expectedTargets`. A `complete` coverage claim requires exact equality between
+`expectedTargets` and `observedTargets` and an empty `notObserved`; a `partial`
+claim MUST account for every expected target in exactly one of the observed or
+not-observed sets. Observations in the package MUST resolve to exactly the
+manifest's observed target set. A `succeeded` collection requires complete
+declared-scope coverage and all recorded source attempts to have succeeded.
+These checks do not prove that the declared scope itself was adequate or
+complete for the environment.
+
 Collection completeness and control coverage MUST be reported separately.
 The manifest describes source/target visibility and collection limitations.
 Each assessment describes its assessed subjects and any unassessed subjects.
@@ -158,7 +171,14 @@ must not be confused with an Evaxis assessment.
 An assessment result identifies the rule and version, evaluator and version,
 subject/target, exact observation references, assessment time, outcome and any
 normalization/comparison model used. It also records execution status and
-coverage. Rule execution failure, unsupported rule version, unavailable
+coverage. It MUST declare an input basis: referenced observations, declared
+scope, external references, or no input, with a rationale. Observation-based
+assessments MUST reference at least one observation; external-reference
+assessments MUST identify their external references. A completed `Pass` or
+`Fail` MUST NOT have unknown control coverage or a `no-input` basis. A rule
+whose intended basis is not represented by these options is insufficiently
+specified for a v0.1 assessment. Rule execution failure, unsupported rule
+version, unavailable
 observations and malformed inputs yield an explicit error/unknown/unsupported
 state, not a fabricated control result.
 
@@ -180,8 +200,10 @@ Display names, labels, paths, tags and other mutable attributes MUST NOT alone
 establish continuity. A rename is consistent with the same object only when
 the authority-scoped native identity and lifecycle evidence support it. A
 delete-and-recreate operation can reuse a display name while representing a
-replacement object. New native identity under the same name MUST NOT silently
-inherit the old object's history.
+replacement object. Different native identifiers under the same authority and
+scope establish distinct source identities; without lifecycle or migration
+evidence they do not prove that one replaced the other. New native identity
+under the same name MUST NOT silently inherit the old object's history.
 
 The producer MUST distinguish observed identity from an inferred correlation.
 Correlations MUST identify method, evidence/basis, source scopes, candidate
@@ -226,13 +248,32 @@ encoding MUST be explicit enough to interpret. Consumers MUST NOT silently
 recompute, canonicalize or compare digests over different byte representations.
 v0.1 does not mandate a digest algorithm.
 
-Collector authentication, if available, is a separate provenance assertion:
-record claimed collector identity, authentication/verification status,
-verification time and the verifier/trust context. An unverified identity claim
-is not authenticated identity. Signature metadata MAY be carried opaquely for
-future interoperability, but v0.1 specifies no signature algorithm, PKI,
-trusted issuer set, key custody, encryption or verification service. A
-signature over a record does not prove collection completeness or source truth.
+The envelope and observation schemas contain producer-supplied claims only.
+Fields such as `claimStatus: claims-verified`, `identityClaimStatus:
+claims-authenticated`, a named verifier, or a verification time MUST NOT be
+promoted by a consumer into established verification or authenticated identity
+merely because the record validates. The schema validates the claim's shape;
+it cannot establish who made the claim or whether verification occurred.
+
+Any receiver verification result is a separate, receiver-owned derived record
+outside the immutable producer package. It MUST identify the receiver/verifier,
+the exact immutable record or digest and verification scope, method, result,
+time, and trust context. It MUST preserve the original producer claim and
+verification inputs; it MUST NOT rewrite producer fields or make a claim
+retroactively authoritative. A consumer MUST distinguish absent, failed,
+unavailable and successful receiver verification. v0.1 defines no schema or
+cryptographic mechanism for this derived record, and absent such a record the
+verification state remains unestablished. Signature metadata MAY be carried
+opaquely for future interoperability, but v0.1 specifies no signature
+algorithm, PKI, trusted issuer set, key custody, encryption or verification
+service. A signature over a record does not prove collection completeness or
+source truth.
+
+For an observation representation, exactly one of `content` or `reference`
+identifies the captured representation. If `content` is present with JSON
+`null`, that is an explicit source-reported null value, not missing evidence.
+An omitted content/reference is structurally invalid; absence of a field inside
+the captured content is interpreted only by its declared source schema.
 
 Duplicate submission and replay are different. Within an identified producer
 authority, the same envelope identifier with the same immutable bytes/digest
@@ -272,16 +313,26 @@ environmental conclusion:
 | Trust/freshness | Provenance, digest, authentication, integrity, timestamp or age changes | Source truth or complete visibility |
 | Coverage | Requested scope, collection completeness or assessment coverage changes | Pass, remediation or security improvement |
 
-Environmental drift is supportable only when evidence for the compared values
-is structurally valid, semantically comparable, sufficiently fresh for the
-declared policy, tied to the same sufficiently correlated subject, and
-collected over compatible scopes. If any condition is unknown, the result must
-be partially comparable, incomparable or insufficient evidence as appropriate,
-not an asserted environmental change or no-change.
+An environmental conclusion is supportable only when evidence for the
+compared values is structurally valid, package references resolve,
+semantically comparable, sufficiently fresh under a declared policy, tied to
+the same sufficiently correlated subject, and collected over compatible
+scopes with adequate declared-scope coverage and acceptable receiver trust
+context. Each prerequisite and its evidence basis MUST be recorded. If
+receiver verification is absent, a consumer may report a difference between
+the preserved source-reported evidence records, but MUST NOT present that
+difference as established environmental change. A conclusion made under a
+declared but unverified trust assumption MUST be labeled conditional and name
+that assumption. If any prerequisite is unknown, the result must be partially
+comparable, incomparable or insufficient evidence as appropriate, not an
+asserted environmental change or no-change.
 
 Different configuration with the same `Pass` is environmental drift plus
-unchanged outcome when the values are comparable and the rule/evaluator
-contexts are stable. An unchanged observation with a different result under a
+unchanged outcome for those compared values when the values are comparable and
+the rule/evaluator contexts are stable. Identical observations support only
+"no observed difference in the compared values within the declared scope";
+they do not establish that the environment as a whole did not drift. An
+unchanged observation with a different result under a
 stricter rule or changed evaluator is evaluation drift, not environmental drift.
 An unchanged `Pass` does not prove unchanged environment: a rule may accept
 multiple configurations, compare only a subset, or miss a changed property.
@@ -301,6 +352,24 @@ shape. Semantic compatibility asks whether the records describe the same
 concepts under comparable units, enumerations, scope, identity and collection
 meaning. Structural validity is necessary, not sufficient, for semantic
 comparability.
+
+Package-level conformance is separate from individual record validation. A
+consumer MUST resolve envelope manifest/observation/assessment references
+within the package; require matching envelope/manifest run identifiers and
+observation/manifest run membership; resolve assessment observation references;
+and enforce the target coverage invariants in section 4. A completed
+observation-based assessment MUST resolve its references and include at least
+one observation for its assessed subject. Unresolved, duplicate, cross-run or
+inconsistent references invalidate the affected package/assessment and MUST NOT
+be silently dropped.
+
+Conformance claims MUST identify their level. Structural schema validation
+establishes only shape and declared constraints. Package consistency validation
+establishes only the tested reference, run-membership and coverage invariants.
+Synthetic semantic expectations state required behavior under their declared
+preconditions; they are not executable comparison results. Behavioral
+conformance requires tests against an implementation and is not established by
+the v0.1 schemas or fixture validator.
 
 Compatibility outcomes are:
 

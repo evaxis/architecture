@@ -2,18 +2,18 @@
 
 ## Contract status
 
-Closed as submitted for review: https://github.com/evaxis/architecture/pull/3.
-The user authorized drafting the specification, fixtures/tooling across both
-repositories, validation, commits, pushes and linked PR creation. This PR
-publishes a **proposal pending maintainer review**, not an approved
-architectural decision. Do not merge it.
+Active review-revision scope for https://github.com/evaxis/architecture/pull/3.
+The user requests cross-PR corrections before merge; keep the PR open and the
+specification proposed, not approved. Revise trust-claim authority, identity
+continuity language, and comparison preconditions to align with core PR #1.
 
 ## Goal and approved scope
 
-Define human-readable, provider-neutral Evidence Envelope v0.1 semantics and
-record boundaries in `specifications/evidence-envelope-v0.1.md`; cross-link the
-core schemas and fixtures, reconcile documentation and memory, validate, and
-open a review PR.
+Clarify human-readable, provider-neutral Evidence Envelope v0.1 semantics in
+`specifications/evidence-envelope-v0.1.md`: producer assertions versus
+receiver-established verification; collection coverage/package invariants;
+identity continuity limits; assessment input basis; and defensible comparison
+preconditions. Keep the existing PR linked to core PR #1.
 
 ## Non-goals and forbidden scope
 
@@ -42,7 +42,11 @@ Follow `.github/carl/plans/pr3-evidence-envelope-v0-1.md`. Expected:
    transformations preserve original evidence and lineage.
 4. Provenance, integrity, authenticity, freshness, replay and completeness
    claims state their limits; no unsupported cryptographic guarantee is made.
-5. Cross-links and authority/version alignment identify architecture as the
+5. Consumers cannot turn producer-claimed verification/authentication into
+   established trust; receiver results are separate derived records.
+6. Distinct native IDs do not imply replacement; comparison conclusions list
+   freshness, identity, scope, coverage, semantic and receiver-trust prerequisites.
+7. Cross-links and authority/version alignment identify architecture as the
    semantic source and core as schema/fixture source.
 
 Run documentation/link, whitespace and credential-pattern checks; run cARL
@@ -59,6 +63,6 @@ alter protection settings.
 
 ## Carry-forward and reset
 
-Once the PR is opened, close this execution contract as submitted for review,
-not as an approved specification. Carry durable semantics into architecture
-memory; later changes require a new scope. Do not merge automatically.
+After the revision is pushed and PR checks verified, close this execution
+contract as submitted for review, not as an approved specification. Carry
+durable semantics into architecture memory; do not merge automatically.

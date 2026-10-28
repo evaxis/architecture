@@ -56,6 +56,8 @@ These are repository-specific canonical invariants, supplementing the bundled
 5. Evidence integrity: design for immutable evidence, provenance, source and
    collector identity, collection timestamps, completeness, freshness and replay
    protection. Do not claim these properties are already implemented.
+   Producer-supplied verification/authentication metadata is a claim only;
+   receiver-established verification must be a separate derived record.
 6. Semantic correctness: distinguish environmental drift from schema,
    collection, identity-resolution and evaluation changes.
 7. Commercial independence: useful baseline functionality should remain
@@ -91,6 +93,7 @@ These supplement `.github/carl/trust-boundaries.md`.
 | PR content into CI | Read-only token, no secrets, no `pull_request_target`, no privileged execution of contributor code. |
 | Sensitive report into public discussion | Use private vulnerability reporting; never publish customer evidence or credentials. |
 | Future evidence/tenant/provider boundaries | Preserve source identity, evaluator context, completeness, authorization, key isolation and portability; integrity, authenticity, truthfulness, freshness and visibility are independent claims. |
+| Producer trust metadata into consumer assurance | Never promote producer-asserted verification/authentication status based on schema validity; require separate receiver-owned verification evidence and preserve the original immutable claim. |
 | Architecture semantics into core schema | Architecture owns human-semantic meaning; core owns schema structure and fixture expectations. Keep the explicit version aligned and review meaning changes in both repositories. |
 
 ## cARL ownership and workflow
