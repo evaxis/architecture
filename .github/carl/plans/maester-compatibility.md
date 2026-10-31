@@ -1,8 +1,8 @@
 # Maester compatibility research plan
 
 ## Plan metadata
-- PR / branch: not opened / `research/maester-compatibility`
-- Status: Ready for PR submission
+- PR / branch: [Architecture PR #4](https://github.com/evaxis/architecture/pull/4) / `research/maester-compatibility`
+- Status: Closed — submitted for review; not merged
 - Purpose: Record verified Maester Pack compatibility and the provider-neutral Evidence Envelope v0.1 boundary.
 - Created: 2026-10-28
 - Last updated: 2026-10-31

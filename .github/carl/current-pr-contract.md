@@ -2,10 +2,12 @@
 
 ## Contract status
 
-Ready for PR submission — requested research and implementation-readiness
-work is complete on `research/maester-compatibility`, based on merged `main`
-and the proposed Evidence Envelope v0.1 specification. This work does not
-approve that proposal or make Maester an Evaxis foundation.
+Closed — submitted for review in
+[Architecture PR #4](https://github.com/evaxis/architecture/pull/4), unmerged.
+Requested research and implementation-readiness work is complete on
+`research/maester-compatibility`, based on merged `main` and the proposed
+Evidence Envelope v0.1 specification. This work does not approve that proposal
+or make Maester an Evaxis foundation.
 
 ## Goal and approved scope
 
