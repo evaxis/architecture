@@ -1,7 +1,19 @@
 # Maester Pack compatibility research
 
-**Status:** Source-verified research; not a new Evaxis contract. The
-Evidence Envelope v0.1 specification remains a proposal pending approval.
+**Research status:** Source-verified findings submitted for review in
+[Architecture PR #4](https://github.com/evaxis/architecture/pull/4); this
+research is not itself an approved contract or decision.
+
+**Evidence Envelope status:** The v0.1 specification and its Core schemas were
+merged into their repositories' default branches through Architecture PR #3
+and Core PR #1. The authoritative specification nevertheless records its
+status exactly as **“Proposed; pending maintainer review and explicit
+architectural approval.”** Merging those PRs did not change that recorded
+approval status. The v0.1 proposal is not modified here.
+
+**Integration status:** ADR 0002 remains **Proposed**. No Maester adapter or
+evidence-preservation interface is implemented or approved. Candidate capture
+mechanisms in ADR 0002 are alternatives for future evaluation, not decisions.
 Research performed 2026-10-28 against the pinned `main` commits below.
 
 ## Executive result

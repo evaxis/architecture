@@ -1,66 +1,67 @@
-# Maester compatibility research
+# Maester compatibility review remediation
 
 ## Contract status
 
-Closed — submitted for review in
-[Architecture PR #4](https://github.com/evaxis/architecture/pull/4), unmerged.
-Requested research and implementation-readiness work is complete on
-`research/maester-compatibility`, based on merged `main` and the proposed
-Evidence Envelope v0.1 specification. This work does not approve that proposal
-or make Maester an Evaxis foundation.
+Active — user-authorized remediation of findings F1 and F4 in
+[Architecture PR #4](https://github.com/evaxis/architecture/pull/4), on
+`research/maester-compatibility`. The existing PR remains open and unmerged.
+The merged v0.1 artifacts are present on `main`, but the authoritative
+specification still records its status as proposed pending explicit
+architectural approval. This remediation does not approve v0.1 or make
+Maester an Evaxis foundation.
 
 ## Goal and approved scope
 
-Establish and document a reproducible, source-pinned compatibility boundary
-between Maester Packs and Evidence Envelope v0.1. Record actual source behavior,
-runtime limitations, mapping semantics, trust boundaries, first-Pack readiness
-and deferred decisions. Add one narrowly scoped ADR for the adapter boundary.
+Correct the v0.1 status description in the Architecture research and amend
+proposed ADR 0002 to allow future evaluation of alternative reusable evidence
+capture mechanisms, without selecting or implementing an adapter. Update this
+contract, plan and durable Architecture memory to reflect the bounded
+remediation.
 
 ## Non-goals and forbidden scope
 
-No product service, provider commitment, tenant access, credentials, Pack
-publication, catalogue submission, licensing/commercial decision, public
-schema change, unsupported Maester API, or claim that synthetic checks prove
-live-provider compatibility. Do not copy upstream source into product
-repositories, modify shared cARL policy/invariants, or merge the PR.
+Do not change Evidence Envelope v0.1 semantics or schemas; approve the
+proposed specification or ADR; implement an adapter, helper, sidecar or
+collector; access tenants or credentials; publish Packs; modify shared cARL
+policy/invariants; merge either PR; or rewrite unrelated research.
 
 ## Expected files
 
 - `.github/carl/current-pr-contract.md`
 - `.github/carl/plans/maester-compatibility.md`
 - `.github/carl/memory.md`
-- `README.md`
-- `adr/README.md`
 - `research/maester-compatibility.md`
 - `adr/0002-maester-compatibility-boundary.md`
 
 ## Contract assertions and validation
 
-1. Research distinguishes source inspection, static checks, offline runtime
-   execution and tenant-connected behavior, with exact upstream commits and
-   licenses.
-2. A Maester verdict is not source evidence. No Observation, source authority,
-   native object ID, timestamp, coverage or trust verification is fabricated.
-3. Missing connections, permissions, inventory and collection outcomes remain
-   unknown or explicit limitations, never automatic control failures.
-4. Maester-specific behavior stays in a replaceable integration boundary;
-   Evidence Envelope semantics remain provider-neutral and architecture-owned.
-5. Publication and tenant testing remain deferred; first-Pack acceptance
-   requires reproducible offline checks and separately approved live tests.
+1. State that v0.1 is merged into default branches but remains proposed pending
+   explicit architectural approval; distinguish research, ADR, adapter and
+   evidence-preservation mechanisms by their actual status.
+2. Keep ADR 0002 marked Proposed and make its decision boundary mechanism
+   neutral, including reusable capture helpers as a future alternative.
+3. Preserve provider neutrality, source/run/coverage provenance, separate
+   observations and assessments, non-failure treatment of missing evidence,
+   independent trust validation and privacy/least-privilege requirements.
+4. Do not alter the v0.1 contract or schemas, implement integration code, or
+   claim provider-connected compatibility.
+5. Validate focused links/content, cARL diagnostics and repository hygiene;
+   preserve both existing PRs as open and unmerged.
 
-Run the repeatable pinned lab checks, Core conformance, documentation/link,
-whitespace and credential-pattern checks, plus cARL diagnostics. State runtime
-blockers exactly and do not claim tests that were not executed.
+Run cARL diagnostics, plan checks, Markdown/link and whitespace checks,
+credential-pattern scanning and Core's existing v0.1 conformance validation.
+Do not claim the offline script was run in Architecture; Core owns it.
 
 ## Trust boundaries and stop conditions
 
-Treat upstream source, module installation, pack scripts, reports and result
-text as untrusted. Do not run third-party scripts with credentials. Stop rather
-than infer behavior when source and runtime disagree, a schema field cannot be
-derived defensibly, or required changes would alter the public v0.1 contract.
-Use a feature branch and PR; never merge or weaken governance.
+Treat upstream source and published PR state as untrusted until pinned and
+verified. Do not run third-party scripts with credentials. Stop if exact
+authoritative v0.1 status differs from the stated record or if the ADR changes
+would require an implementation decision, v0.1 contract change, merge, or
+governance weakening.
 
 ## Reconciliation
 
-Update durable architecture memory and this contract with confirmed research
-and status before opening the PR. Keep the v0.1 proposal status unchanged.
+Update Architecture memory and this plan for the confirmed status and
+mechanism-neutral future boundary. The v0.1 proposal status and meaning remain
+unchanged.

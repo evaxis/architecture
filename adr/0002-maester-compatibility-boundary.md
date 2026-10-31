@@ -17,21 +17,51 @@ run-level identity and time. Result subjects and coverage are not uniformly
 available. Some Pack outputs can include object names, permissions, report
 HTML, tenant context and error text.
 
-## Proposed decision
+## Proposed decision boundary
 
-Keep any Maester adapter optional and outside provider-neutral Core
-interfaces. Treat Maester output as an untrusted, versioned external
-assessment record. Preserve its exact original representation or immutable
-reference. Never infer Observations, source authority, target identity,
-coverage, integrity verification or environmental completeness from a result
-verdict, prose, progress event or Pack installation.
+Evaxis may accept Maester-derived evidence when independently sufficient
+provenance is preserved by a supported capture mechanism. This proposal
+approves only that architectural boundary for review; it does not approve or
+select a concrete adapter, capture mechanism, interface, or implementation.
+Maester remains optional to Evaxis, and Core's evidence contract remains
+provider-neutral.
 
-Do not implement an Evidence Envelope package adapter until the input can
-provide a complete, defensible manifest and assessment subject/time. Where
-source facts are emitted, require explicit source schema, authority, scope,
-native ID, observation time and collection-health provenance. Keep any future
-Maester-to-Evaxis importer distinct from a future Evaxis-to-Maester test
-provider.
+Any future capture mechanism must preserve evidence at a legitimate source
+collection boundary, before relevant provenance is lost. Alternatives for
+future evaluation include:
+
+1. A reusable helper invoked within a Maester Pack.
+2. An instrumented provider/source collector.
+3. A structured evidence sidecar associated with a specific Maester execution.
+4. A supported native Maester export containing equivalent provenance.
+
+These are alternatives, not requirements or implementation decisions. Do not
+require Pack authors to modify every test unnecessarily or reinvent
+Evaxis-specific evidence plumbing for each Pack. Do not mandate a sidecar,
+helper library, PowerShell module, storage backend, transport, or Maester
+export change.
+
+The capture boundary and any later adapter must preserve these properties:
+
+- Source identity is qualified by authority and scope; source observations
+  have defensible collection timestamps.
+- Run identity, source attempts, and coverage are explicit. Missing evidence
+  or collection failure is not automatically an assessment failure.
+- Source observations remain distinct from evaluation outcomes. A wrapper
+  cannot reconstruct missing provenance from ordinary Pass/Fail rows.
+- Original source evidence or durable references are preserved according to
+  the evidence contract. Producer claims do not become receiver-verified trust.
+- The wrapper's own security and identity claims require independent
+  validation.
+- Privacy, least privilege, source attribution, and version compatibility are
+  preserved.
+
+Any future Maester-to-Evaxis importer remains distinct from a future
+Evaxis-to-Maester test provider. Standard Maester result rows remain
+insufficient wherever required provenance is absent; do not fabricate
+Observations, authority, target identity, timestamps, coverage, integrity
+verification, or environmental completeness from a verdict, prose, progress
+event, or Pack installation.
 
 ## Consequences
 
@@ -59,8 +89,12 @@ provider.
 
 ## Revisit when
 
-A supported, versioned Maester export plus an explicit Pack evidence contract
-provides immutable source data/reference, source and tenant authority, native
-object identity, collection attempts/coverage, run and observation times,
-rule/evaluator versions and portable offline fixtures. Then review a separate
-adapter implementation proposal and its threat/privacy controls.
+Source inspection or controlled offline evidence shows that any one of the
+candidate mechanisms—or another supported mechanism—can preserve the
+contract-required source/run/attempt/coverage provenance before it is lost,
+with portable versioned references and independently reviewable security,
+identity, privacy, least-privilege, and compatibility properties. Native
+Maester export changes are not a prerequisite when another supported capture
+boundary provides equivalent provenance. Then review the proposed boundary
+and a separate adapter implementation proposal; do not treat this ADR as
+approval to build one.
