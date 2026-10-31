@@ -2,9 +2,9 @@
 
 ## Contract status
 
-Active — user-authorized remediation of findings F1 and F4 in
-[Architecture PR #4](https://github.com/evaxis/architecture/pull/4), on
-`research/maester-compatibility`. The existing PR remains open and unmerged.
+Closed — F1/F4 remediation committed to
+[Architecture PR #4](https://github.com/evaxis/architecture/pull/4) on
+`research/maester-compatibility`; the PR remains open and unmerged.
 The merged v0.1 artifacts are present on `main`, but the authoritative
 specification still records its status as proposed pending explicit
 architectural approval. This remediation does not approve v0.1 or make
