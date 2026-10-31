@@ -1,68 +1,64 @@
-# PR #3: Evidence Envelope v0.1 architecture proposal
+# Maester compatibility research
 
 ## Contract status
 
-Closed — submitted for review, not approved. The proposal remains open for
-maintainer review at https://github.com/evaxis/architecture/pull/3. The
-cross-PR review revisions clarify trust-claim authority, identity continuity
-language, and comparison preconditions to align with core PR #1.
+Ready for PR submission — requested research and implementation-readiness
+work is complete on `research/maester-compatibility`, based on merged `main`
+and the proposed Evidence Envelope v0.1 specification. This work does not
+approve that proposal or make Maester an Evaxis foundation.
 
 ## Goal and approved scope
 
-Clarify human-readable, provider-neutral Evidence Envelope v0.1 semantics in
-`specifications/evidence-envelope-v0.1.md`: producer assertions versus
-receiver-established verification; collection coverage/package invariants;
-identity continuity limits; assessment input basis; and defensible comparison
-preconditions. Keep the existing PR linked to core PR #1.
+Establish and document a reproducible, source-pinned compatibility boundary
+between Maester Packs and Evidence Envelope v0.1. Record actual source behavior,
+runtime limitations, mapping semantics, trust boundaries, first-Pack readiness
+and deferred decisions. Add one narrowly scoped ADR for the adapter boundary.
 
 ## Non-goals and forbidden scope
 
-No comparison engine, product implementation, cloud/runtime/provider,
-implementation-language, storage/API, authentication, cryptographic algorithm,
-key custody, encryption, retention, licensing, billing or Maester-specific
-decision. Do not change CI, cARL runtime/packs/profiles/invariants/adapters,
-branch protections, or claim implementation/approval.
+No product service, provider commitment, tenant access, credentials, Pack
+publication, catalogue submission, licensing/commercial decision, public
+schema change, unsupported Maester API, or claim that synthetic checks prove
+live-provider compatibility. Do not copy upstream source into product
+repositories, modify shared cARL policy/invariants, or merge the PR.
 
-## Plan and expected files
+## Expected files
 
-Follow `.github/carl/plans/pr3-evidence-envelope-v0-1.md`. Expected:
-`.github/carl/current-pr-contract.md`, `.github/carl/plans/pr3-evidence-envelope-v0-1.md`,
-`.github/carl/memory.md`, `README.md`, `specifications/README.md`,
-`specifications/evidence-envelope-v0.1.md`, `threat-model/README.md`, and
-`roadmap/README.md`.
+- `.github/carl/current-pr-contract.md`
+- `.github/carl/plans/maester-compatibility.md`
+- `.github/carl/memory.md`
+- `README.md`
+- `adr/README.md`
+- `research/maester-compatibility.md`
+- `adr/0002-maester-compatibility-boundary.md`
 
 ## Contract assertions and validation
 
-1. Observation, assessment, manifest and comparison boundaries are separate;
-   missing/partial/stale/untrusted evidence does not become Pass, Fail,
-   deletion or remediation.
-2. Environmental, collection, schema/representation, identity, relationship,
-   scope/coverage and evaluator/rule changes remain distinguishable.
-3. Identity/correlation limitations and compatibility outcomes are explicit;
-   transformations preserve original evidence and lineage.
-4. Provenance, integrity, authenticity, freshness, replay and completeness
-   claims state their limits; no unsupported cryptographic guarantee is made.
-5. Consumers cannot turn producer-claimed verification/authentication into
-   established trust; receiver results are separate derived records.
-6. Distinct native IDs do not imply replacement; comparison conclusions list
-   freshness, identity, scope, coverage, semantic and receiver-trust prerequisites.
-7. Cross-links and authority/version alignment identify architecture as the
-   semantic source and core as schema/fixture source.
+1. Research distinguishes source inspection, static checks, offline runtime
+   execution and tenant-connected behavior, with exact upstream commits and
+   licenses.
+2. A Maester verdict is not source evidence. No Observation, source authority,
+   native object ID, timestamp, coverage or trust verification is fabricated.
+3. Missing connections, permissions, inventory and collection outcomes remain
+   unknown or explicit limitations, never automatic control failures.
+4. Maester-specific behavior stays in a replaceable integration boundary;
+   Evidence Envelope semantics remain provider-neutral and architecture-owned.
+5. Publication and tenant testing remain deferred; first-Pack acceptance
+   requires reproducible offline checks and separately approved live tests.
 
-Run documentation/link, whitespace and credential-pattern checks; run cARL
-diagnostics in both repositories. Report all behavior not actually tested by
-documentation checks or the core fixture validator.
+Run the repeatable pinned lab checks, Core conformance, documentation/link,
+whitespace and credential-pattern checks, plus cARL diagnostics. State runtime
+blockers exactly and do not claim tests that were not executed.
 
-## Constraints and stop conditions
+## Trust boundaries and stop conditions
 
-Preserve architecture `.github/carl/memory.md` and bundled governance. Label
-the proposed specification as pending approval. Stop on conflicting policy,
-unexpected worktree edits, protection failures or requests to select reserved
-decisions. Use a feature branch and PR; never merge, bypass requirements or
-alter protection settings.
+Treat upstream source, module installation, pack scripts, reports and result
+text as untrusted. Do not run third-party scripts with credentials. Stop rather
+than infer behavior when source and runtime disagree, a schema field cannot be
+derived defensibly, or required changes would alter the public v0.1 contract.
+Use a feature branch and PR; never merge or weaken governance.
 
-## Carry-forward and reset
+## Reconciliation
 
-After the revision is pushed and PR checks verified, close this execution
-contract as submitted for review, not as an approved specification. Carry
-durable semantics into architecture memory; do not merge automatically.
+Update durable architecture memory and this contract with confirmed research
+and status before opening the PR. Keep the v0.1 proposal status unchanged.
