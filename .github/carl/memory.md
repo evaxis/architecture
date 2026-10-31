@@ -78,6 +78,23 @@ These are repository-specific canonical invariants, supplementing the bundled
     auto-merge, force-push, delete protected branches or weaken protections to
     make automation succeed. Never modify unrelated organisations or projects.
 
+## Source-verified Maester compatibility research
+
+The pinned Maester 3.0.0 source and offline native test output are documented
+in `research/maester-compatibility.md` and ADR 0002. Maester result rows report
+test execution and producer assessment claims; they are not source
+observations, and standard rows do not provide all the source, run, subject,
+time and coverage facts required for a complete Evidence Envelope v0.1
+package. The adapter remains optional and unimplemented; do not make Maester
+foundational or fill schema-required provenance with guesses. This research
+does not amend the proposed v0.1 contract or governance invariants. The v0.1
+specification and schemas are merged into their default branches, but the
+authoritative specification remains explicitly proposed pending maintainer
+review and architectural approval. ADR 0002 is also proposed: a reusable
+capture helper, instrumented collector, execution-associated sidecar and
+equivalent native export are alternatives for future evaluation, not selected
+mechanisms or implementation approval.
+
 ## Repository-specific trust boundaries
 
 These supplement `.github/carl/trust-boundaries.md`.
