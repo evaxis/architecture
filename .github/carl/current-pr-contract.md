@@ -2,9 +2,10 @@
 
 ## Contract status
 
-Active — Architecture-only documentation and governance reconciliation on
-`goldjg-evidence-preservation-contract`. The user requested an Architecture
-branch and PR. The coordinator verified Architecture PR #4 and Core PR #2 are
+Closed — Proposed Architecture deliverables submitted for review in
+[Architecture PR #5](https://github.com/evaxis/architecture/pull/5) on
+`goldjg-evidence-preservation-contract`; the PR is not to be merged
+automatically. The coordinator verified Architecture PR #4 and Core PR #2 are
 merged; older cARL records describing them as open are stale. This work does
 not implement a capture helper or approve a product contract.
 
@@ -80,5 +81,4 @@ without evidence or coordinator confirmation.
 
 Correct stale Architecture cARL memory/plan status for merged PR #4 and record
 the new proposal as Proposed, without creating an approval or implementation
-commitment. Close this contract only after the proposal is submitted for review;
-do not merge.
+commitment. The proposal is submitted for review; do not merge.

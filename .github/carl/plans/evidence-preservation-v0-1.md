@@ -1,8 +1,8 @@
 # Evidence Preservation v0.1 architecture proposal
 
 ## Plan metadata
-- PR / branch: Architecture PR to be opened / `goldjg-evidence-preservation-contract`
-- Status: Active proposal; no implementation or approval
+- PR / branch: [Architecture PR #5](https://github.com/evaxis/architecture/pull/5) / `goldjg-evidence-preservation-contract`
+- Status: Submitted for review; proposal and ADR remain Proposed
 - Author: Copilot
 - Created: 2026-11-01
 - Last updated: 2026-11-01
@@ -166,6 +166,6 @@ guessing when existing architecture does not settle them.
 
 ## Context reset requirements
 
-After PR creation, mark the contract closed as a proposal submitted for review,
-not an approved capture contract. Preserve open decisions in the specification
-and memory; a subsequent implementation requires a new contract.
+PR #5 is submitted for review, not as an approved capture contract. Preserve
+open decisions in the specification and memory; a subsequent implementation
+requires a new contract.
