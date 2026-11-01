@@ -6,6 +6,9 @@ Records distinguish **Confirmed** decisions, **Proposed** directions and
 Start with [0001: Foundation boundaries](0001-foundation-boundaries.md).
 The [proposed 0002: Maester compatibility boundary](0002-maester-compatibility-boundary.md)
 is a research outcome, not an approved change to the provider-neutral core.
+The [proposed 0003: evidence-preservation capture boundary](0003-evidence-preservation-capture-boundary.md)
+records a separate, provider-neutral capture proposal; it does not approve
+Evidence Envelope v0.1 or select an implementation.
 Future records should state status, context, decision, alternatives,
 consequences, trust boundaries and validation evidence. Accept changes through
 reviewed PRs and reconcile cARL memory; never silently promote a proposal.

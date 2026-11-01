@@ -81,7 +81,9 @@ These are repository-specific canonical invariants, supplementing the bundled
 ## Source-verified Maester compatibility research
 
 The pinned Maester 3.0.0 source and offline native test output are documented
-in `research/maester-compatibility.md` and ADR 0002. Maester result rows report
+in `research/maester-compatibility.md` and ADR 0002. Architecture PR #4 and
+Core PR #2 are merged; older cARL plans that say they are open are stale.
+Maester result rows report
 test execution and producer assessment claims; they are not source
 observations, and standard rows do not provide all the source, run, subject,
 time and coverage facts required for a complete Evidence Envelope v0.1
@@ -90,7 +92,25 @@ foundational or fill schema-required provenance with guesses. This research
 does not amend the proposed v0.1 contract or governance invariants. The v0.1
 specification and schemas are merged into their default branches, but the
 authoritative specification remains explicitly proposed pending maintainer
-review and architectural approval. ADR 0002 is also proposed: a reusable
+review and architectural approval.
+
+## Evidence Preservation capture proposal
+
+`specifications/evidence-preservation-v0.1.md` and ADR 0003 are separate
+Proposed Architecture documents for a provider- and assessment-framework-neutral
+capture boundary. They distinguish collection runs/attempts, source
+observations, coverage and assessment conclusions; preserve source versus
+collector time and authority; and reject display-name-only identity, unknown
+inventory presented as complete, or collection failure treated as a control
+failure. A sidecar is optional and requires explicit run/execution association;
+filename or timestamp coincidence is insufficient. Digests do not prove
+producer identity, truth or receiver verification.
+
+These proposals do not approve or amend Evidence Envelope v0.1, change ADR
+0002, select a helper/collector/API/storage/transport, or authorize
+implementation. Cross-repository schema mapping, exact coverage and health
+aggregation, clock assumptions, assessment-only input basis, identifier
+scope, sidecar binding and implementation security controls remain open. ADR 0002 is also proposed: a reusable
 capture helper, instrumented collector, execution-associated sidecar and
 equivalent native export are alternatives for future evaluation, not selected
 mechanisms or implementation approval.

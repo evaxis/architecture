@@ -2,18 +2,19 @@
 
 ## Plan metadata
 - PR / branch: [Architecture PR #4](https://github.com/evaxis/architecture/pull/4) / `research/maester-compatibility`
-- Status: Closed — F1/F4 remediation submitted; existing PR remains open and unmerged
+- Status: Historical — PR #4 merged; this remediation plan is closed
 - Purpose: Correct status language and keep proposed ADR 0002 open to future, mechanism-neutral evidence-preservation approaches.
 - Created: 2026-10-28
 - Last updated: 2026-11-02
 
 ## Status and scope
 
-The remediation is limited to Architecture findings F1 and F4 on the existing
-PR branch. The v0.1 specification and schemas are merged to their respective
-default branches but the authoritative semantic document remains explicitly
-proposed pending architectural approval. No tenant, secrets, publication,
-catalogue submission, adapter implementation, schema amendment or merge.
+The remediation addressed Architecture findings F1 and F4 on the former PR
+branch. PR #4 is merged. The v0.1 specification and schemas are merged to their
+respective default branches but the authoritative semantic document remains
+explicitly proposed pending architectural approval. No tenant, secrets,
+publication, catalogue submission, adapter implementation, or schema amendment
+was part of that remediation.
 
 ## Goal
 

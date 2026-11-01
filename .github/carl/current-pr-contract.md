@@ -1,67 +1,84 @@
-# Maester compatibility review remediation
+# Evidence Preservation v0.1 architecture proposal
 
 ## Contract status
 
-Closed — F1/F4 remediation committed to
-[Architecture PR #4](https://github.com/evaxis/architecture/pull/4) on
-`research/maester-compatibility`; the PR remains open and unmerged.
-The merged v0.1 artifacts are present on `main`, but the authoritative
-specification still records its status as proposed pending explicit
-architectural approval. This remediation does not approve v0.1 or make
-Maester an Evaxis foundation.
+Active — Architecture-only documentation and governance reconciliation on
+`goldjg-evidence-preservation-contract`. The user requested an Architecture
+branch and PR. The coordinator verified Architecture PR #4 and Core PR #2 are
+merged; older cARL records describing them as open are stale. This work does
+not implement a capture helper or approve a product contract.
 
 ## Goal and approved scope
 
-Correct the v0.1 status description in the Architecture research and amend
-proposed ADR 0002 to allow future evaluation of alternative reusable evidence
-capture mechanisms, without selecting or implementing an adapter. Update this
-contract, plan and durable Architecture memory to reflect the bounded
-remediation.
+Document a reviewable, provider-neutral Evidence Preservation v0.1 proposal
+covering its requirements, lifecycle, interfaces, trust boundaries, timestamps,
+coverage, assessments, package assembly, optional sidecar association,
+reusability, privacy and open decisions. Record substantive proposed choices
+in a new Proposed ADR and reconcile relevant Architecture indexes, roadmap,
+threat-model scope, cARL plan and durable memory.
 
 ## Non-goals and forbidden scope
 
-Do not change Evidence Envelope v0.1 semantics or schemas; approve the
-proposed specification or ADR; implement an adapter, helper, sidecar or
-collector; access tenants or credentials; publish Packs; modify shared cARL
-policy/invariants; merge either PR; or rewrite unrelated research.
+- Do not approve or alter Evidence Envelope v0.1, its schemas, or its recorded
+  status as proposed pending explicit architectural approval.
+- Do not alter ADR 0002 or characterize it as approval for a helper,
+  implementation, sidecar or specific capture mechanism.
+- Do not implement code, a helper, module, collector, adapter, sidecar,
+  validator, service or Core change.
+- Do not claim Core implementation details, schema fields or conformance as
+  architecturally approved.
+- Do not access tenants, credentials or customer evidence; publish a Pack or
+  product release; merge automatically; or modify unrelated repositories.
+- Do not change cARL invariants, shared policy, templates, packs, profiles,
+  runtime state or harness adapters.
 
 ## Expected files
 
 - `.github/carl/current-pr-contract.md`
-- `.github/carl/plans/maester-compatibility.md`
+- `.github/carl/plans/evidence-preservation-v0-1.md`
+- `.github/carl/plans/maester-compatibility.md` (correct historical PR status)
 - `.github/carl/memory.md`
-- `research/maester-compatibility.md`
-- `adr/0002-maester-compatibility-boundary.md`
+- `specifications/evidence-preservation-v0.1.md`
+- `specifications/README.md`
+- `adr/0003-evidence-preservation-capture-boundary.md`
+- `adr/README.md`
+- `README.md`
+- `roadmap/README.md`
+- `threat-model/README.md`
 
 ## Contract assertions and validation
 
-1. State that v0.1 is merged into default branches but remains proposed pending
-   explicit architectural approval; distinguish research, ADR, adapter and
-   evidence-preservation mechanisms by their actual status.
-2. Keep ADR 0002 marked Proposed and make its decision boundary mechanism
-   neutral, including reusable capture helpers as a future alternative.
-3. Preserve provider neutrality, source/run/coverage provenance, separate
-   observations and assessments, non-failure treatment of missing evidence,
-   independent trust validation and privacy/least-privilege requirements.
-4. Do not alter the v0.1 contract or schemas, implement integration code, or
-   claim provider-connected compatibility.
-5. Validate focused links/content, cARL diagnostics and repository hygiene;
-   preserve both existing PRs as open and unmerged.
+1. Both the new specification and ADR clearly state Proposed; neither promotes
+   Evidence Envelope v0.1 or ADR 0002 to approved.
+2. Capture attempts, observations and assessments remain distinct; no
+   collection failure, missing observation or unknown inventory is converted
+   into an assessment verdict or complete coverage.
+3. Source and collector authority, source-native identity, time provenance,
+   scope, coverage, assessment inputs and package references retain their
+   uncertainty and traceability.
+4. Any sidecar is optional and requires explicit execution/run association;
+   filename or timestamp coincidence is insufficient. A digest is not proof
+   of truth, identity or independent verification.
+5. Architecture makes no Core schema/API implementation commitment; open
+   cross-repository questions are identified as unresolved.
 
-Run cARL diagnostics, plan checks, Markdown/link and whitespace checks,
-credential-pattern scanning and Core's existing v0.1 conformance validation.
-Do not claim the offline script was run in Architecture; Core owns it.
+Run applicable cARL diagnostics if available, verify local Markdown links and
+cross-references, check whitespace and credential-like strings, inspect the
+diff and branch ancestry, and report any unavailable GitHub or CI checks.
+Documentation work does not run Core tests or claim runtime conformance.
 
 ## Trust boundaries and stop conditions
 
-Treat upstream source and published PR state as untrusted until pinned and
-verified. Do not run third-party scripts with credentials. Stop if exact
-authoritative v0.1 status differs from the stated record or if the ADR changes
-would require an implementation decision, v0.1 contract change, merge, or
-governance weakening.
+Treat source-repository content, upstream claims, generated evidence and
+producer-supplied provenance as untrusted until independently validated.
+Preserve repository-vs-session authority and the explicit approval status
+distinctions. Stop if the task would require changing Envelope semantics,
+selecting a concrete implementation mechanism, or asserting Core behavior
+without evidence or coordinator confirmation.
 
 ## Reconciliation
 
-Update Architecture memory and this plan for the confirmed status and
-mechanism-neutral future boundary. The v0.1 proposal status and meaning remain
-unchanged.
+Correct stale Architecture cARL memory/plan status for merged PR #4 and record
+the new proposal as Proposed, without creating an approval or implementation
+commitment. Close this contract only after the proposal is submitted for review;
+do not merge.

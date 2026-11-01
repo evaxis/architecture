@@ -32,3 +32,15 @@ requirements, not implemented controls or a completed threat assessment.
 custody, identity/authentication model, cryptographic algorithms, retention and
 deletion obligations, authorization semantics, storage consistency and
 residual risk acceptance. The proposal selects none of them.
+
+The separate Proposed
+[Evidence Preservation v0.1](../specifications/evidence-preservation-v0.1.md)
+adds capture-specific questions: whether source authority and collector
+identity are independently established; how limited visibility, pagination,
+clock skew, source-asserted times and unknown inventory affect claims; whether
+execution-associated sidecars can be substituted, replayed or mismatched; and
+whether raw payloads, errors, identifiers or derived digests disclose
+sensitive data or overstate assurance. A schema-valid package or matching
+digest is not proof of source truth, complete collection, authentic producer
+identity, immutable storage or receiver verification. This proposal is not an
+approved control set or completed threat assessment.

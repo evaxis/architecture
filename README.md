@@ -16,7 +16,7 @@ all individual technology providers.
 |---|---|
 | [Architectural records](adr/README.md) | Decision process and confirmed foundation constraints |
 | [Diagrams](diagrams/README.md) | Animated architecture and roadmap proposal, with local viewing instructions |
-| [Specifications](specifications/README.md) | Proposed Evidence Envelope v0.1 semantics; pending review |
+| [Specifications](specifications/README.md) | Proposed Evidence Envelope v0.1 and separate Proposed Evidence Preservation v0.1 capture contract |
 | [Maester compatibility research](research/maester-compatibility.md) | Pinned Pack/runtime findings and proposed adapter boundary; not an Evaxis foundation |
 | [Threat model](threat-model/README.md) | Preliminary boundaries and analysis questions, not a completed security assessment |
 | [Roadmap](roadmap/README.md) | Evidence Envelope and conformance before implementation |
@@ -35,7 +35,10 @@ is not Evaxis's execution or storage foundation. Provider APIs, evidence storage
 commercial licensing and revenue sharing are not established contracts.
 No partnership, affiliation or endorsement is claimed.
 The [pinned compatibility research](research/maester-compatibility.md) confirms
-the current native result boundary and is not an approval of an adapter.
+the current native result boundary and is not an approval of an adapter. The
+separate [Evidence Preservation v0.1 capture proposal](specifications/evidence-preservation-v0.1.md)
+and [ADR 0003](adr/0003-evidence-preservation-capture-boundary.md) also remain
+Proposed and do not authorize a helper implementation.
 
 **Undecided:** implementation language, build system, database, cloud, execution
 model, detailed cryptographic/identity design and commercial licensing.
